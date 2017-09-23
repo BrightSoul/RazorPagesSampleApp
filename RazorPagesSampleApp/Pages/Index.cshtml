@@ -5,6 +5,7 @@
 }
 <h1>Todo List</h1>
 <h4>Add a todo</h4>
+<p class="text-success">@Model.Message</p>
 <form asp-page="Index" method="post" class="form-inline">
     <input type="text" id="Description" name="Description" class="form-control" placeholder="Description" />
     <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add</button>
@@ -22,10 +23,15 @@ else
 @foreach (var todo in Model.Todos)
 {
     <li>
-        <form method="post" asp-page="Index" asp-page-handler="Remove">
+        <form method="post" asp-page="Index" asp-page-handler="Remove" style="display: inline">
             <input type="hidden" name="Id" value="@todo.Id" />
-            <button type="submit" class="btn btn-link"><span class="glyphicon glyphicon-trash"></span></button> @todo.Description
+            <button type="submit" class="btn btn-link"><span class="glyphicon glyphicon-trash"></span></button>
         </form>
+        <form method="post" asp-page="Index" asp-page-handler="Edit" style="display: inline">
+            <input type="hidden" name="Id" value="@todo.Id" />
+            <button type="submit" class="btn btn-link"><span class="glyphicon glyphicon-edit"></span></button>
+        </form>
+        @todo.Description
     </li>
 }
 </ul>

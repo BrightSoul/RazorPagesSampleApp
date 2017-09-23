@@ -12,7 +12,7 @@ namespace RazorPagesSampleApp.Models
         {
             Id = Guid.NewGuid();
         }
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string Description { get; set; }
