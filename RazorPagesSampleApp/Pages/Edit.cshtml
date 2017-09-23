@@ -1,0 +1,11 @@
+﻿@page
+@model EditModel
+@{
+    <h1>Todo List</h1>
+    <h4>Edit a todo : @Model.EditTodo.Description</h4>
+    <form asp-page="Edit" method="post" class="form-inline">
+        <input type="hidden" name="Id" value="@Model.EditTodo.Id" />
+        <input type="text" id="Description" name="Description" class="form-control" placeholder="Description"/>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Update</button>
+    </form>
+}

@@ -39,5 +39,20 @@ namespace RazorPagesSampleApp.Services
             Todos.Remove(todo);
             await SaveChangesAsync();
         }
+
+        async Task<Todo> ITodoRepository.Find(Guid id)
+        {
+            return await Todos.FindAsync(id);
+        }
+
+        async Task ITodoRepository.Update(Todo todo)
+        {
+            Todo toUpdate = await Todos.FindAsync(todo.Id);
+            if (toUpdate != null)
+            {
+                toUpdate.Description = todo.Description;
+                await SaveChangesAsync();
+            }
+        }
     }
 }

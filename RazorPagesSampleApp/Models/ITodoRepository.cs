@@ -10,5 +10,7 @@ namespace RazorPagesSampleApp.Models
         Task<IEnumerable<Todo>> GetAll();
         Task Add(Todo todo);
         Task Remove(Guid id);
+        Task<Todo> Find(Guid id);
+        Task Update(Todo todo);
     }
 }
